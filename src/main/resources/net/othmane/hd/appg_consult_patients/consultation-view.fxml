@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.othmane.hd.appg_consult_patients.controllers.ConsultationController">
+    <top>
+        <VBox prefHeight="162.0" prefWidth="595.0" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane hgap="3.0" vgap="15.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="260.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="366.0" minWidth="10.0" prefWidth="335.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Date Consultation :" />
+                        <Label text="Description :" GridPane.rowIndex="2" />
+                        <Label text="Patient :" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="datePickerConsultation" prefHeight="25.0" prefWidth="274.0" GridPane.columnIndex="1" />
+                        <TextArea fx:id="textareaDescription" prefHeight="77.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="comboBoxPatient" prefHeight="25.0" prefWidth="276.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                    <opaqueInsets>
+                        <Insets left="10.0" />
+                    </opaqueInsets>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </GridPane>
+                <HBox prefHeight="53.0" prefWidth="595.0" spacing="15.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#ajouterConsultation" text="Ajouter" styleClass="btn-primary" />
+                        <Button mnemonicParsing="false" onAction="#modifierConsultation" text="Modifier"  styleClass="btn-warning"/>
+                        <Button mnemonicParsing="false" onAction="#supprimerConsultation" text="Supprimer" styleClass="btn-danger" />
+                        <TextField fx:id="textFieldSearch"  />
+                        <Label fx:id="statusLabel"  styleClass="lbl, lbl-success"/>
+                    </children>
+                    <padding>
+                        <Insets left="15.0" top="14.0" />
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <padding>
+        <Insets left="5.0" right="5.0" />
+    </padding>
+    <center>
+        <TableView fx:id="tableConsultation" prefHeight="240.0" prefWidth="604.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="columnId" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="columnDateConsultation" prefWidth="175.0" text="DATE DE CONSULTATION" />
+                <TableColumn fx:id="columnDescription" prefWidth="140.0" text="DESCRIPTION" />
+                <TableColumn fx:id="columnPatient" prefWidth="204.0" text="PATIENT" />
+            </columns>
+            <BorderPane.margin>
+                <Insets top="1.0" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+</BorderPane>
